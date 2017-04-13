@@ -34,6 +34,7 @@ class GenusController extends Controller
         if ($cache->contains($key)) {
             $funFact = $cache->fetch($key);
         } else {
+            sleep(1);
             $funFact = $this->get('markdown.parser')
                 ->transform($funFact);
             $cache->save($key, $funFact);
