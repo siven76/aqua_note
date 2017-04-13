@@ -15,8 +15,11 @@
                 <dd>{{ genus.speciesCount|number_format }}</dd>
                 <dt>Fun Fact:</dt>
                 <dd>{{ genus.funFact }}</dd>
+<<<<<<< HEAD
                 <dt>Recent Notes</dt>
                 <dd>{{ recentNoteCount }}</dd>
+=======
+>>>>>>> 12bcaf10199c7f2ae54abfa802d6a71325454eb9
             </dl>
         </div>
     </div>
@@ -31,7 +34,11 @@
 
     <script type="text/babel" src="{{ asset('js/notes.react.js') }}"></script>
     <script type="text/babel">
+<<<<<<< HEAD
         var notesUrl = '{{ path('genus_show_notes', {'name': genus.name}) }}';
+=======
+        var notesUrl = '{{ path('genus_show_notes', {'genusName': genus.name}) }}';
+>>>>>>> 12bcaf10199c7f2ae54abfa802d6a71325454eb9
 
         ReactDOM.render(
           <NoteSection url={notesUrl} />,

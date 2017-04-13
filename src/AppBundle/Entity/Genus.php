@@ -2,7 +2,10 @@
 
 namespace AppBundle\Entity;
 
+<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
+=======
+>>>>>>> 12bcaf10199c7f2ae54abfa802d6a71325454eb9
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,21 +42,27 @@ class Genus
     private $funFact;
 
     /**
+<<<<<<< HEAD
      * @ORM\OneToMany(targetEntity="GenusNote", mappedBy="genus")
      * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $notes;
 
     /**
+=======
+>>>>>>> 12bcaf10199c7f2ae54abfa802d6a71325454eb9
      * @ORM\Column(type="boolean")
      */
     private $isPublished = true;
 
+<<<<<<< HEAD
     public function __construct()
     {
         $this->notes = new ArrayCollection();
     }
 
+=======
+>>>>>>> 12bcaf10199c7f2ae54abfa802d6a71325454eb9
     public function getName()
     {
         return $this->name;
@@ -103,6 +112,7 @@ class Genus
     {
         $this->isPublished = $isPublished;
     }
+<<<<<<< HEAD
 
     /**
      * @return ArrayCollection|GenusNote[]
@@ -111,4 +121,6 @@ class Genus
     {
         return $this->notes;
     }
+=======
+>>>>>>> 12bcaf10199c7f2ae54abfa802d6a71325454eb9
 }
