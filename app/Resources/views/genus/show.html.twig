@@ -4,6 +4,7 @@
 
 {% block body %}
     <h2 class="genus-name">{{ name }}</h2>
+
     <div class="sea-creature-container">
         <div class="genus-photo"></div>
         <div class="genus-details">
@@ -17,7 +18,6 @@
             </dl>
         </div>
     </div>
-
     <div id="js-notes-wrapper"></div>
 {% endblock %}
 
@@ -30,9 +30,10 @@
     <script type="text/babel" src="{{ asset('js/notes.react.js') }}"></script>
     <script type="text/babel">
         var notesUrl = '{{ path('genus_show_notes', {'genusName': name}) }}';
+
         ReactDOM.render(
-            <NoteSection url={notesUrl} />,
-            document.getElementById('js-notes-wrapper')
+          <NoteSection url={notesUrl} />,
+          document.getElementById('js-notes-wrapper')
         );
     </script>
 {% endblock %}
