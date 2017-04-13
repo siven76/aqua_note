@@ -5,7 +5,6 @@ AppBundle\Entity\Genus:
         speciesCount: <numberBetween(100, 100000)>
         funFact: <sentence()>
         isPublished: <boolean(75)>
-<<<<<<< HEAD
 
 AppBundle\Entity\GenusNote:
     genus.note_{1..100}:
@@ -14,5 +13,3 @@ AppBundle\Entity\GenusNote:
         note: <paragraph()>
         createdAt: <dateTimeBetween('-6 months', 'now')>
         genus: '@genus_*'
-=======
->>>>>>> 12bcaf10199c7f2ae54abfa802d6a71325454eb9

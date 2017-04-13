@@ -19,7 +19,8 @@ class GenusNoteRepository extends EntityRepository
             ->setParameter('genus', $genus)
             ->andWhere('genus_note.createdAt > :recentDate')
             ->setParameter('recentDate', new \DateTime('-3 months'))
+            ->orderBy('genus_note.createdAt', 'DESC')
             ->getQuery()
             ->execute();
-   }
+    }
 }
