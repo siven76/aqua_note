@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\GenusRepository")
@@ -20,6 +21,7 @@ class Genus
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -31,6 +33,8 @@ class Genus
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Range(min=0, minMessage="Negative species! Come on...")
      */
     private $speciesCount;
 
@@ -46,6 +50,7 @@ class Genus
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
      */
     private $firstDiscoveredAt;
 
@@ -63,6 +68,14 @@ class Genus
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function setName($name)
@@ -95,7 +108,7 @@ class Genus
 
     public function getFunFact()
     {
-        return '**TEST** '.$this->funFact;
+        return $this->funFact;
     }
 
     public function setFunFact($funFact)
@@ -111,6 +124,14 @@ class Genus
     public function setIsPublished($isPublished)
     {
         $this->isPublished = $isPublished;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsPublished()
+    {
+        return $this->isPublished;
     }
 
     /**
