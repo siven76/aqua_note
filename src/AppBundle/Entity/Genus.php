@@ -20,21 +20,22 @@ class Genus
     private $id;
 
     /**
-     * @ORM\Column(type="string")
      * @Assert\NotBlank()
+     * @ORM\Column(type="string")
      */
     private $name;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SubFamily")
      * @ORM\JoinColumn(nullable=false)
      */
     private $subFamily;
 
     /**
-     * @ORM\Column(type="integer")
      * @Assert\NotBlank()
      * @Assert\Range(min=0, minMessage="Negative species! Come on...")
+     * @ORM\Column(type="integer")
      */
     private $speciesCount;
 
@@ -49,8 +50,8 @@ class Genus
     private $isPublished = true;
 
     /**
-     * @ORM\Column(type="date")
      * @Assert\NotBlank()
+     * @ORM\Column(type="date")
      */
     private $firstDiscoveredAt;
 
@@ -65,17 +66,14 @@ class Genus
         $this->notes = new ArrayCollection();
     }
 
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 
     public function setName($name)
@@ -126,9 +124,6 @@ class Genus
         $this->isPublished = $isPublished;
     }
 
-    /**
-     * @return mixed
-     */
     public function getIsPublished()
     {
         return $this->isPublished;

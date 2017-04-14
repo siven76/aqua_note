@@ -55,14 +55,12 @@ class GenusAdminController extends Controller
 
     /**
      * @Route("/genus/{id}/edit", name="admin_genus_edit")
-     *
-     * @param Request $request
-     * @param Genus $genus
      */
     public function editAction(Request $request, Genus $genus)
     {
         $form = $this->createForm(GenusFormType::class, $genus);
 
+        // only handles data on POST
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $genus = $form->getData();

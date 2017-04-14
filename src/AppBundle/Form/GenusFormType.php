@@ -2,7 +2,9 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Genus;
+use AppBundle\Entity\SubFamily;
+use AppBundle\Repository\SubFamilyRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -15,8 +17,12 @@ class GenusFormType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('subFamily', null, [
-                'placeholder' => 'Choose a Sub Family'
+            ->add('subFamily', EntityType::class, [
+                'placeholder' => 'Choose a Sub Family',
+                'class' => SubFamily::class,
+                'query_builder' => function(SubFamilyRepository $repo) {
+                    return $repo->createAlphabeticalQueryBuilder();
+                }
             ])
             ->add('speciesCount')
             ->add('funFact')
@@ -37,12 +43,7 @@ class GenusFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Genus::class
+            'data_class' => 'AppBundle\Entity\Genus'
         ]);
-    }
-
-    public function getBlockPrefix()
-    {
-        return 'app_bundle_genus_form_type';
     }
 }
