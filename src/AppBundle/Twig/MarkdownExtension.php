@@ -13,11 +13,6 @@ class MarkdownExtension extends \Twig_Extension
         $this->markdownTransformer = $markdownTransformer;
     }
 
-    public function getName()
-    {
-        return 'app_markdown';
-    }
-
     public function getFilters()
     {
         return [
@@ -32,4 +27,8 @@ class MarkdownExtension extends \Twig_Extension
         return $this->markdownTransformer->parse($str);
     }
 
+    public function getName()
+    {
+        return 'app_markdown';
+    }
 }
